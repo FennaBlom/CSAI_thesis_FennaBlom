@@ -73,6 +73,13 @@ def TrainModel(train_data, val_data, model, epochs, lr, device):
         Returns:
             model: Trained model
     """
+    ############################################
+    # Title: BERT Fine-Tuning Tutorial with PyTorch
+    # Author: BERT Fine-Tuning Tutorial with PyTorch
+    # Date: 22 July 2019
+    # Type: Tutorial
+    # Source: https://mccormickml.com/2019/07/22/BERT-fine-tuning/
+    ############################################
     optimizer = AdamW(model.parameters(),
                   lr = lr, # args.learning_rate - default is 5e-5, our notebook had 2e-5
                   eps = 1e-8 # args.adam_epsilon  - default is 1e-8.
@@ -300,6 +307,13 @@ def EvaluationModel(model, test_data, device):
             predictions (array): Predicted classes for the test set 
             accuracy (float): The accuracy on the test set
     """
+    ############################################
+    # Title: BERT Fine-Tuning Tutorial with PyTorch
+    # Author: BERT Fine-Tuning Tutorial with PyTorch
+    # Date: 22 July 2019
+    # Type: Tutorial
+    # Source: https://mccormickml.com/2019/07/22/BERT-fine-tuning/
+    ############################################
     model.eval()
 
     # Tracking variables 

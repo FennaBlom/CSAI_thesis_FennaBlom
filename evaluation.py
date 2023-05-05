@@ -9,6 +9,26 @@ from sklearn import model_selection, naive_bayes, svm
 
 
 def CrossValBert(train_data, test_data, model_name, label_names, batch_size, epochs, lr, device, k, seed):
+    """
+    Performs a k-fold cross-validation of BERT
+
+        Parameters:
+            train_data (df): Dataframe of the training data
+            test_data (df): Dataframe of the test data
+            model_name: Name or location of pre-trained model
+            label_names (lst): List with all categories (str)
+            batch_size (int): Batch size for BERT
+            epochs (int): Number of epochs (2, 3, or 4)
+            lr (float): Learning rate
+            device (str): Whether a GPU or CPU should be used
+            k (int): Number of folds
+            seed (int): Setting the seed
+        
+        Returns:
+            accuracy (lst): List of k accuracy scores
+            f1 (lst): List of k F1-scores
+        
+    """
     kf = KFold(n_splits=k, random_state=seed, shuffle=True)
     accuracy = []
     f1 = []
@@ -41,6 +61,20 @@ def CrossValBert(train_data, test_data, model_name, label_names, batch_size, epo
     return accuracy, f1
 
 def CrossValSVM(train_data,  k, seed, kernel, C):
+    """
+    Performs a k-fold cross-validation of SVM
+
+        Parameters:
+            train_data (df): Dataframe of the training data
+            k (int): Number of folds
+            seed (int): Sets the seed
+            kernel (str): Type of kernel
+            C (float): Regularization parameter
+    
+        Returns:
+            accuracy (lst): List of k accuracy scores
+            f1 (lst): List of k F1-scores
+    """
     results = []
     SVM = svm.SVC(kernel=kernel, C=C, degree=3, gamma=1,random_state=seed)
     # Perform cross-validation
@@ -52,6 +86,17 @@ def CrossValSVM(train_data,  k, seed, kernel, C):
     return accuracy, f1_weighted
         
 def ConfusionMatrix(y_true, y_predict, labels):
+    """"
+    Creates the confusion matrix
+
+        Parameters:
+            y_true (lst): List of true y values
+            y_predict (lst): List of predicted y values
+            labels (lst): List of all labels
+        
+        Returns:
+            disp: Display of the confusion matrix
+    """
     cm = confusion_matrix(y_true, y_predict, labels=labels)
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
     return disp

@@ -136,6 +136,13 @@ def DataLoad(train, valid, test, batch_size):
     return train_dataloader, validation_dataloader, test_dataloader
 
 def PreprocessingSVM(df):
+    ############################################
+    # Title: A guide to Text Classification(NLP) using SVM and Naive Bayes with Python
+    # Author: Gunjit Bedi
+    # Date: 9 November 2018
+    # Type: Tutorial
+    # Source: https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm-and-naive-bayes-with-python-421db3a72d34
+    ############################################
     # 1. Removing Blank Spaces
     df['text'].dropna(inplace=True)
     # 2. Changing all text to lowercase
@@ -166,6 +173,7 @@ def PreprocessingSVM(df):
     return df
 
 def FeaturizeSVM(df):
+    # TFIDF of data for SVM
     Encoder = LabelEncoder()
     Y = Encoder.fit_transform(df['label'])
 

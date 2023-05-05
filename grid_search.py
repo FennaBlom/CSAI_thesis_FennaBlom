@@ -32,6 +32,8 @@ np.random.seed(17)
 torch.manual_seed(17)
 torch.cuda.manual_seed_all(17)
 
+# Load and pre-process data 
+
 url_train = 'https://raw.githubusercontent.com/sebischair/Medical-Abstracts-TC-Corpus/main/medical_tc_train.csv'
 url_test = 'https://raw.githubusercontent.com/sebischair/Medical-Abstracts-TC-Corpus/main/medical_tc_test.csv'
 label_names = ['neoplasms', 'digestive system diseases', 'nervous system diseases', 
@@ -61,9 +63,12 @@ else:
     print('No GPU available, using the CPU instead.')
     device = torch.device("cpu")
 
+# Load correct model 
+
 #model_name = "bert-base-uncased"
 model_name = "allenai/scibert_scivocab_uncased"
 
+# tokenize data
 input_ids_train, attention_masks_train = Tokenization(train_text, model_name)
 input_ids_test, attention_masks_test = Tokenization(test_text, model_name)
 
@@ -73,8 +78,11 @@ test_dataset = CreateTensorDataset(input_ids_test, attention_masks_test, test_la
 val_dataset, test_dataset = random_split(test_dataset, [0.5, 0.5])
 
 model = LoadModel(model_name, label_names)
+
+# create grid of parameter values
 param_grid = dict(batch_size = [16, 32], epochs = [2, 3, 4], lr = [2e-5, 3e-5, 5e-5])
 
+# Do grid search and save the best model
 best_model, best_setting, best_acc, results = GridSearch(model_name, label_names, training_dataset, val_dataset, test_dataset, device, param_grid)
 torch.save(best_model, "best_model.pt")
 with open(r'results_scibert_preprocessed.txt', 'w') as fp:

@@ -21,7 +21,7 @@ np.random.seed(17)
 torch.manual_seed(17)
 torch.cuda.manual_seed_all(17)
 
-
+# load data
 
 url_train = 'https://raw.githubusercontent.com/sebischair/Medical-Abstracts-TC-Corpus/main/medical_tc_train.csv'
 url_test = 'https://raw.githubusercontent.com/sebischair/Medical-Abstracts-TC-Corpus/main/medical_tc_test.csv'
@@ -107,7 +107,9 @@ pred_scibert = [labels[x] for x in predictions_scibert]
 cm_scibert = ConfusionMatrix(true_scibert, pred_scibert, labels=label_names)
 cm_scibert.plot(cmap=plt.cm.Blues, xticks_rotation=45)
 
-#svm
+# svm
+
+# train svm 
 df_train = PreprocessingSVM(train_data)
 df_train['text_final'] = df_train['text_final'].astype(str)
 Train_X_Tfidf, Train_Y = FeaturizeSVM(df_train)
@@ -141,8 +143,10 @@ cm_svm = ConfusionMatrix(true_svm, pred_svm, label_names)
 cm_svm.plot(cmap=plt.cm.Blues, xticks_rotation=45)
 
 # combine all matrices
+# this part of code is inspired by https://stackoverflow.com/questions/61825227/plotting-multiple-confusion-matrix-side-by-side
 classifiers = {"SVM": cm_svm, "BERT": cm_bert, "SciBERT": cm_scibert}
 f, axes = plt.subplots(1, 3, figsize=(20,5), sharey='row')
+
 
 for i, (key, cm) in enumerate(classifiers.items()):
     disp = cm

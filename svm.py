@@ -1,3 +1,10 @@
+############################################
+# Title: A guide to Text Classification(NLP) using SVM and Naive Bayes with Python
+# Author: Gunjit Bedi
+# Date: 9 November 2018
+# Type: Tutorial
+# Source: https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm-and-naive-bayes-with-python-421db3a72d34
+############################################
 import pandas as pd
 import numpy as np
 from nltk.tokenize import word_tokenize
