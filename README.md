@@ -8,18 +8,17 @@ The goal of this thesis project was to build a conversational agent using Rasa t
 # Prerequisites
 Before using the code, make sure you have the following prerequisites installed:
 
-NLTK version 3.8.1
-scikit-learn 1.0.2
-Huggingface Transformers 4.26.1
-PyTorch 1.13.1
-SHAP 0.41.0
-Rasa version 3.5.4
+- NLTK version 3.8.1
+- scikit-learn 1.0.2
+- Huggingface Transformers 4.26.1
+- PyTorch 1.13.1
+- SHAP 0.41.0
 
 # Installation
 To install the required dependencies, you can use the following command:
 
-shell
-pip install -r requirements.txt
+`shell`
+`pip install -r requirements.txt`
 
 
 # Usage
