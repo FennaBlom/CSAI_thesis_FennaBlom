@@ -53,7 +53,7 @@ if torch.cuda.is_available():
 else:
     print('No GPU available, using the CPU instead.')
     device = torch.device("cpu")
-mean,std = CrossValBert(train_data, test_data, k=2, seed=17, model_name=model_name_sci, label_names = label_names, batch_size=16, epochs = 2, lr = 5e-05, device=device)
+mean,std = CrossValBert(train_data, test_data, k=10, seed=17, model_name=model_name_sci, label_names = label_names, batch_size=16, epochs = 2, lr = 5e-05, device=device)
 with open(r'results_cv_sciBERT_imb.txt', 'w') as fp:
     fp.write(str(mean))
     fp.write(str(std))
