@@ -1,0 +1,6 @@
+NLTK==3.8.1
+scikit-learn==1.0.2
+transformers==4.26.1
+torch==1.13.1
+shap==0.41.0
+rasa==3.5.4
