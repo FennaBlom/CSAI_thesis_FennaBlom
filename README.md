@@ -1,4 +1,5 @@
-# Building a Conversational Agent with Rasa to Enrich a Medical Abstracts Dataset
+## Building a Conversational Agent with Rasa to Enrich a Medical Abstracts Dataset
+# Classification and explanation
 This README file provides an overview of the thesis project and instructions on how to understand and use the code.
 
 # Introduction
@@ -17,23 +18,22 @@ Before using the code, make sure you have the following prerequisites installed:
 # Installation
 To install the required dependencies, you can use the following command:
 
-`shell`
-`pip install -r requirements.txt`
+```pip install -r requirements.txt``` 
 
 
 # Usage
 The code can be used by running different Python files from the command line. Here's an overview of the available files and their purposes:
 
-grid_search.py: Performs grid search for BERT and SciBERT models. To train the correct model, uncomment either line 64 or 65. The best model will be saved as a .pt file, and the results will also be saved in a .txt file.
-svm.py: Performs grid search for SVM. Uncomment lines 104, 105, and 106 to perform the grid search.
-cross_validation.py: Runs 10-fold cross-validation. The model name might need to be adjusted in the code for the corresponding model.
-confusion_matrix.py: Creates confusion matrices. The confusion matrix will be automatically saved as a .png file.
-SHAP: SHAP computations can only be done in the SHAP notebook.
+- grid_search.py: Performs grid search for BERT and SciBERT models. To train the correct model, uncomment either line 64 or 65. The best model will be saved as a .pt file, and the results will also be saved in a .txt file.
+- svm.py: Performs grid search for SVM. Uncomment lines 104, 105, and 106 to perform the grid search.
+- cross_validation.py: Runs 10-fold cross-validation. The model name might need to be adjusted in the code for the corresponding model.
+- confusion_matrix.py: Creates confusion matrices. The confusion matrix will be automatically saved as a .png file.
+- SHAP: SHAP computations can only be done in the SHAP notebook.
 For command line usage, no specific arguments are required.
 
 # Known Issues
-Results of SVM for cross-validation and confusion matrix might not match.
-The repository does not include the trained models as they were too big to upload. These models, however, are available upon request.
+- Results of SVM for cross-validation and confusion matrix might not match. 
+- The repository does not include the trained models as they were too big to upload. These models, however, are available upon request.
 
 # Contributing
 As this is a thesis project, contributions are not expected. However, if you have any suggestions or improvements, feel free to reach out to the project owner.
