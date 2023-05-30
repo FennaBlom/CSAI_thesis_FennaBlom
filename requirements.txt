@@ -4,3 +4,4 @@ transformers==4.26.1
 torch==1.13.1
 shap==0.41.0
 rasa==3.5.4
+matplotlib==3.7.1
