@@ -14,6 +14,7 @@ Before using the code, make sure you have the following prerequisites installed:
 - Huggingface Transformers 4.26.1
 - PyTorch 1.13.1
 - SHAP 0.41.0
+- matplotlib 3.7.1
 
 # Installation
 To install the required dependencies, you can use the following command:
